@@ -28,9 +28,9 @@ matrix_type = "direct_pin"
 
 # 2D array representing your direct-pin matrix
 direct_pins = [
-    ["P1_12", "P1_15", "P0_04", "P1_11", "P0_29"],
-    ["P1_13", "P1_02", "P0_05", "P1_10", "P1_03"],
-    ["P1_14", "P1_01", "P0_30", "P0_31", "P0_02"]
+    ["GPIO2", "GPIO3", "GPIO8", "GPIO1", "GPIO11"],
+    ["GPIO4", "GPIO6", "GPIO9", "GPIORX", "GPIOTX"],
+    ["GPIO5", "GPIO7", "GPIO10", "GPIO12", "GPIO13"]
 ]
 
 # Pin behavior (default: true = active low with pull-up)
@@ -54,9 +54,9 @@ matrix_type = "direct_pin"
 
 # 2D array representing your direct-pin matrix
 direct_pins = [
-    ["P1_13", "P1_11", "P1_01", "P0_31", "P0_02"],
-    ["P1_03", "P1_10", "P1_02", "P0_05", "P0_29"],
-    ["P1_12", "P1_15", "P1_14", "P0_04", "P0_30"]
+    ["GPIO11", "GPIO1", "GPIO7", "GPIO12", "GPIO13"],
+    ["GPIOTX", "GPIORX", "GPIO6", "GPIO9", "GPIO11"],
+    ["GPIO2", "GPIO3", "GPIO5", "GPIO8", "GPIO10"]
 ]
 
 # Pin behavior (default: true = active low with pull-up)
