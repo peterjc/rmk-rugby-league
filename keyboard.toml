@@ -54,7 +54,7 @@ matrix_type = "direct_pin"
 
 # 2D array representing your direct-pin matrix
 direct_pins = [
-    ["GPIO11", "GPIO1", "GPIO7", "GPIO12", "GPIO13"],
+    ["GPIO4", "GPIO1", "GPIO7", "GPIO12", "GPIO13"],
     ["GPIO43", "GPIO44", "GPIO6", "GPIO9", "GPIO11"],
     ["GPIO2", "GPIO3", "GPIO5", "GPIO8", "GPIO10"]
 ]
