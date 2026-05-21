@@ -1,7 +1,7 @@
 # Documentation: https://rmk.rs/docs/configuration.html
 [keyboard]
-name = "Rugby League Keyboard"
-product_name = "Rugby League Keyboard"
+name = "Rugby League NRF52840"
+product_name = "Rugby League NRF52840 Keyboard"
 vendor_id = 0x4c4b
 product_id = 0x4643
 manufacturer = "RMK"
