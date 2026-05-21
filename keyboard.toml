@@ -1,35 +1,80 @@
 # Documentation: https://rmk.rs/docs/configuration.html
 [keyboard]
-name = "RMK Keyboard"
-product_name = "RMK Keyboard"
+name = "Rugby League Keyboard"
+product_name = "Rugby League Keyboard"
 vendor_id = 0x4c4b
 product_id = 0x4643
 manufacturer = "RMK"
-chip = "rp2040"
+chip = "nrf52840"
 
-[matrix]
-# Row and col pins are mandatory
-row_pins = ["PIN_6", "PIN_7", "PIN_8", "PIN_9"]
-col_pins = ["PIN_19", "PIN_20", "PIN_21"]
+[split]
+# split connection type
+connection = "ble"
 
-# RMK uses col2row as the default matrix diode direction, if you want to use a row2col matrix, add `row2col = true`
-# row2col = true
+# Split central
+[split.central]
+# Central's matrix definition and offsets
+rows = 3
+cols = 5
+row_offset = 0
+col_offset = 0
+
+# Central's ble addr will be automatically generated. You can override it if you want.
+# ble_addr = [0x18, 0xe2, 0x21, 0x80, 0xc0, 0xc7]
+
+# Central's matrix
+[split.central.matrix]
+matrix_type = "direct_pin"
+
+# 2D array representing your direct-pin matrix
+direct_pins = [
+    ["P1_12", "P1_15", "P0_04", "P1_11", "P0_29"],
+    ["P1_13", "P1_02", "P0_05", "P1_10", "P1_03"],
+    ["P1_14", "P1_01", "P0_30", "P0_31", "P0_02"]
+]
+
+# Pin behavior (default: true = active low with pull-up)
+direct_pin_low_active = true
+
+# Note there're TWO brackets, since the peripheral is a list
+# Peripheral 0
+[[split.peripheral]]
+# Matrix definition
+rows = 3
+cols = 5
+row_offset = 0
+col_offset = 5
+
+# Peripheral's ble addr will be automatically generated. You can override it if you want.
+# ble_addr = [0x7e, 0xfe, 0x71, 0x91, 0x11, 0xe3]
+
+# Peripheral 0's matrix definition
+[split.peripheral.matrix]
+matrix_type = "direct_pin"
+
+# 2D array representing your direct-pin matrix
+direct_pins = [
+    ["P1_13", "P1_11", "P1_01", "P0_31", "P0_02"],
+    ["P1_03", "P1_10", "P1_02", "P0_05", "P0_29"],
+    ["P1_12", "P1_15", "P1_14", "P0_04", "P0_30"]
+]
+
+# Pin behavior (default: true = active low with pull-up)
+direct_pin_low_active = true
 
 [layout]
-rows = 4
-cols = 3
+rows = 3
+cols = 10
 layers = 2
+matrix_map = """
+(0, 0, L)  (0, 1, L)  (0, 2, L)  (0, 3, L)  (0, 4, L)    (0, 5, R)  (0, 6, R)  (0, 7, R)  (0, 8, R)  (0, 9, R)
+(1, 0, L)  (1, 1, L)  (1, 2, L)  (1, 3, L)  (1, 4, L)    (1, 5, R)  (1, 6, R)  (1, 7, R)  (1, 8, R)  (1, 9, R)
+(2, 0, L)  (2, 1, L)  (2, 2, L)  (2, 3, L)  (2, 4, L)    (2, 5, R)  (2, 6, R)  (2, 7, R)  (2, 8, R)  (2, 9, R)
+"""
 keymap = [
     [
-        ["A", "B", "C"],
-        ["Kc1", "Kc2", "Kc3"],
-        ["LCtrl", "MO(1)", "LShift"],
-        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"]
-    ],
-    [
-        ["_", "TT(1)", "TG(2)"],
-        ["_", "_", "_"],
-        ["_", "_", "_"],
-        ["_", "_", "_"]
-    ],
+        ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+        ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"],
+        ["Z", "X", "C", "V", "B", "N", "M", ",", ".", "/"]
+    ]
 ]
