@@ -1,0 +1,80 @@
+# Documentation: https://rmk.rs/docs/configuration.html
+[keyboard]
+name = "Rugby League ESP32S3"
+product_name = "Rugby League ESP32-S3 Keyboard"
+vendor_id = 0x4c4b
+product_id = 0x4643
+manufacturer = "RMK"
+chip = "esp32s3"
+
+[split]
+# split connection type
+connection = "ble"
+
+# Split central
+[split.central]
+# Central's matrix definition and offsets
+rows = 3
+cols = 5
+row_offset = 0
+col_offset = 0
+
+# Central's ble addr will be automatically generated. You can override it if you want.
+# ble_addr = [0x18, 0xe2, 0x21, 0x80, 0xc0, 0xc7]
+
+# Central's matrix
+[split.central.matrix]
+matrix_type = "direct_pin"
+
+# 2D array representing your direct-pin matrix
+direct_pins = [
+    ["GPIO2", "GPIO3", "GPIO8", "GPIO1", "GPIO11"],
+    ["GPIO4", "GPIO6", "GPIO9", "GPIO44", "GPIO43"],
+    ["GPIO5", "GPIO7", "GPIO10", "GPIO12", "GPIO13"]
+]
+
+# Pin behavior (default: true = active low with pull-up)
+direct_pin_low_active = true
+
+# Note there're TWO brackets, since the peripheral is a list
+# Peripheral 0
+[[split.peripheral]]
+# Matrix definition
+rows = 3
+cols = 5
+row_offset = 0
+col_offset = 5
+
+# Peripheral's ble addr will be automatically generated. You can override it if you want.
+# ble_addr = [0x7e, 0xfe, 0x71, 0x91, 0x11, 0xe3]
+
+# Peripheral 0's matrix definition
+[split.peripheral.matrix]
+matrix_type = "direct_pin"
+
+# 2D array representing your direct-pin matrix
+direct_pins = [
+    ["GPIO4", "GPIO1", "GPIO7", "GPIO12", "GPIO13"],
+    ["GPIO43", "GPIO44", "GPIO6", "GPIO9", "GPIO11"],
+    ["GPIO2", "GPIO3", "GPIO5", "GPIO8", "GPIO10"]
+]
+
+# Pin behavior (default: true = active low with pull-up)
+direct_pin_low_active = true
+
+[layout]
+rows = 3
+cols = 10
+layers = 2
+matrix_map = """
+(0, 0, L)  (0, 1, L)  (0, 2, L)  (0, 3, L)  (0, 4, L)    (0, 5, R)  (0, 6, R)  (0, 7, R)  (0, 8, R)  (0, 9, R)
+(1, 0, L)  (1, 1, L)  (1, 2, L)  (1, 3, L)  (1, 4, L)    (1, 5, R)  (1, 6, R)  (1, 7, R)  (1, 8, R)  (1, 9, R)
+(2, 0, L)  (2, 1, L)  (2, 2, L)  (2, 3, L)  (2, 4, L)    (2, 5, R)  (2, 6, R)  (2, 7, R)  (2, 8, R)  (2, 9, R)
+"""
+keymap = [
+    [
+        ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+        ["A", "S", "D", "F", "G", "H", "J", "K", "L", ";"],
+        ["Z", "X", "C", "V", "B", "N", "M", ",", ".", "/"]
+    ]
+]
