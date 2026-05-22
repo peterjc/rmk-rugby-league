@@ -1,0 +1,13 @@
+name: Build Rugby_League_NRF52840 RMK firmware
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "**"
+
+jobs:
+  build:
+    uses: haobogu/rmk/.github/workflows/user_build.yml@main
+    with:
+      keyboard_toml_path: "Rugby_League_NRF52840/keyboard.toml"
+      vial_json_path: "Rugby_League_NRF52840/vial.json"
