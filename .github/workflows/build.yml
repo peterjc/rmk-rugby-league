@@ -7,7 +7,13 @@ on:
 
 jobs:
   build:
-    uses: haobogu/rmk/.github/workflows/user_build.yml@main
+    strategy:
+      fail-fast: false
+      matrix:
+        kb:
+          - { name: Rugby_League_ESP32S3 }
+          - { name: Rugby_League_NRF52840 }
+    uses: HaoboGu/rmk/.github/workflows/user_build.yml@main
     with:
-      keyboard_toml_path: "keyboard.toml"
-      vial_json_path: "vial.json"
+      keyboard_toml_path: ${{ matrix.kb.name }}/keyboard.toml
+      vial_json_path: ${{ matrix.kb.name }}/vial.json
