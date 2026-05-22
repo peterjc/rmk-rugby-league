@@ -19,12 +19,13 @@ the NRF52840 chip (very well supported in ZMK) and the ESP32-S3 or ESP32-H2
 (not yet supported in ZMK).
 
 Currently in RMK a keyboard firmware is defined by two files, `keyboard.toml`
-(which includes the chipset, wiring matrix, *and* layout) plus a `vial.json`
+(which includes the chipset, wiring matrix, *and* layout) and `vial.json`
 (which describes the physical layout for use with the Vial layout editor).
 That means I need a different `keyboard.toml` for each potential controller
 of my "Rugby League" keyboard, but they can share the same `vial.json` file.
 I would also need a separate `keyboard.toml` for a default Qwerty layout
-and my personal layout based on Hands Down Promethium.
+and my personal layout based on Hands Down Promethium. Each combination is
+treated as a separate firmware to build, defined by a separate directory.
 
 See also [my QMK firmware](https://github.com/peterjc/qmk_userspace), and
 [my ZMK firmware configuration](https://github.com/peterjc/zmk-config).
