@@ -78,3 +78,7 @@ keymap = [
         ["Z", "X", "C", "V", "B", "N", "M", ",", ".", "/"]
     ]
 ]
+
+[host]
+# Vial Unlock combination: simultaneous press of specified keys
+unlock_keys = [[0, 0], [0, 9]]  # Q and P
